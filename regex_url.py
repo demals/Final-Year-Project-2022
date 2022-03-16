@@ -5,3 +5,4 @@ def regex_url(array):
     for term in array:
         if re.search(regex, term):
             print (term)
+            
