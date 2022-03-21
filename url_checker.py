@@ -7,13 +7,16 @@ def url_check(url):
     if re.search(regex, url):
         print ("has @")
         return("@")
-    r = requests.get(url, allow_redirects=False, headers=headers)
+    try:    
+        r = requests.get(url, allow_redirects=False, headers=headers)
+    except requests.ConnectionError:
+        return("error")
     if ((str(r.status_code))[0]) == "3":
         return("redirect")
-    print (str(r.status_code))
     if len(url) >= 127:
         return("length")
     regex = r"(%[1234567890abcdef][1234567890abcdef])"
     hex_encode_ammount = len(re.findall(regex, url))
     if ((hex_encode_ammount)*3)/len(url) >= 0.5:
         return("hex")
+

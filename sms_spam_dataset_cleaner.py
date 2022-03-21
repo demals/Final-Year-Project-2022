@@ -1,5 +1,5 @@
-f1 = open("SMSSpamCollection","r")
-f2 = open("sms_dataset","a")
+f1 = open("datasets/SMSSpamCollection","r")
+f2 = open("datasets/sms_dataset","a")
 
 for line in f1:
     x = line.split("\t" , 1)

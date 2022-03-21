@@ -5,8 +5,8 @@ word_dict = {}
 sms_database = open("sms_dataset","r")
 ammount_of_attacks = (len(sms_database.readlines()))
 sms_database.close()
-sms_database = open("sms_dataset","r")
-common_word = open("most_common_words","r")
+sms_database = open("datasets/sms_dataset","r")
+common_word = open("datasets/most_common_words","r")
 common_word_read = common_word.read()
 
 
@@ -25,7 +25,7 @@ for line in sms_database:
 sms_database.close()
 common_word.close()
 
-sms_phishing_word_doc = open("sms_phishing_words","w")
+sms_phishing_word_doc = open("datasets/sms_phishing_words","w")
 word_list = sorted(word_dict, key=word_dict.get, reverse=True)
 
 coutner = 0
